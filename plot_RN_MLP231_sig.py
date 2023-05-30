@@ -43,34 +43,35 @@ def ff(X, W1, W2):
 x1 = np.arange(-6, 6, 0.025)
 x2 = np.arange(-6, 6, 0.025)
 
-W1 = [[-4.2, -2.3, -0.76],
-      [-3.6, 1.3, -1.2],
-      [-3.1, 0.39, 1.6]]
+# vetor de pesos para a camada escondida 1
+W1 = [[-4.2, -2.3, -0.76],      # pesos para neuronio 1
+      [-3.6, 1.3, -1.2],        # 2
+      [-3.1, 0.39, 1.6]]        # 3
 
+# vetor de pesos para a camada de saida
 W2 = [[7.2, 3.4, 3.3, 3.4]]
 
+# calcular a saida da rede para (X1, X2)
 X1, X2 = np.meshgrid(x1, x2)
 Y1 = ff([X1, X2], W1, W2)
 
-
+# plotar saida do passo feedforward
 fig = plt.figure()
 ax = plt.axes(projection='3d')
 ax.contour3D(X1, X2, Y1, 50, cmap='Reds')
-
 
 ax.set_xlabel('X1')
 ax.set_ylabel('X2')
 ax.set_zlabel('Y')
 
 # Procedimento de decisao - definir um threshold = 0.5
+# Todos que estao acima de 0.5 sao exemplos positivos
 Z = np.full_like(X1, 0.5)
 ax.plot_surface(X1, X2, Z)
 
-## simular um input
+## simular inputs
 for i in range(-6, 6, 1):
     print(f" Saida para [{i}, 0] = {ff([i, 0], W1, W2):.3f}")
-
-
 
 plt.show()
 

@@ -28,7 +28,7 @@ w0_ini = -1        # peso inicial sinapse do limiar  x0
 w1_ini = -1        # peso inicial sinapse da entrada x1
 lr = 0.75          # learning rate
 batch_size = 3     # tamanho do lote
-train_file = '016_adaline_nota.csv' # arquivo com dados de treinamento com 2 colunas x1, y_target
+train_file = 'adaline_nota.csv' # arquivo com dados de treinamento com 2 colunas x1, y_target
 
 def train_adaline(csv_file, w0, w1, learning_rate, batch_size=1):
     # Leitura do arquivo CSV
